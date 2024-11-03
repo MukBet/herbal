@@ -1,0 +1,44 @@
+.ticker-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: rgb(250, 166, 52); /* Цвет фона */
+    color: aliceblue;
+    opacity: 0.70;
+    padding: 5px 10px;
+    font-size: 22px;
+    font-weight: 600;
+    height: 50px;
+    display: block;
+    place-items: center; /* Выровняет по центру по горизонтали и вертикали */
+  }
+
+  .ticker-content a {
+    text-decoration: none; /* Убирает стандартное подчеркивание у ссылки */
+    color: inherit; /* Наследует цвет от родителя */
+    padding: 10px 10px;
+    white-space: nowrap; /* Убедитесь, что текст не переносится */
+    overflow: hidden; /* Обрезка текста */
+  /*  display: inline-block; Для применения стилей, связанных с размером */
+  }
+  
+  @keyframes ticker {
+    0% {
+      transform: translateX(100vw);
+      opacity: 0;
+    }
+    10%, 90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+  }
+  
+  .ticker-content {
+    display: inline-block;
+    animation: ticker 15s linear infinite;
+
+  white-space: nowrap; /* Убедитесь, что текст не переносится */
+  }
+  

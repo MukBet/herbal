@@ -9,6 +9,8 @@ import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+import Footer from "./footer"
+import Ticker from './runLine/runLine.js';
 import "./layout.css"
 
 const Layout = ({ children }) => {
@@ -16,7 +18,14 @@ const Layout = ({ children }) => {
     query SiteTitleQuery {
       site {
         siteMetadata {
-          title
+          titleA,
+          titleB,
+          bottom {
+            title,
+            url,
+            builtWithTitle,
+            builtWithUrl
+          }
         }
       }
     }
@@ -24,7 +33,8 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Header siteTitleA={data.site.siteMetadata?.titleA || `Title`} siteTitleB={data.site.siteMetadata?.titleB || `Title`} />
+      <Ticker  text="Клацніть тут! Щоб відкрити ціни." link=""></Ticker>
       <div
         style={{
           margin: `0 auto`,
@@ -33,17 +43,15 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `var(--space-5)`,
-            fontSize: `var(--font-sm)`,
-          }}
-        >
-          © {new Date().getFullYear()} &middot; Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
+        
       </div>
+      <Footer 
+      bottomTitle={data.site.siteMetadata.bottom?.title || `Herballife`} 
+      bottomUrl={data.site.siteMetadata.bottom?.url || `https://www.herbalife.com/`} 
+      bottomBuiltWithTitle={data.site.siteMetadata.bottom?.builtWithTitle || `https://www.gatsbyjs.com/`} 
+      bottomBuiltWithUrl={data.site.siteMetadata.bottom?.builtWithUrl || `https://www.gatsbyjs.com/`} 
+
+      />
     </>
   )
 }
