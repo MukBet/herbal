@@ -9,16 +9,20 @@
  */
 module.exports = {
   siteMetadata: {
-    titleA: `Схуднути хочеш?`,
-    titleB: `Спитай як!`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
-    bottom: {
-      title: `Про Гербалайф`,
-      url: `https://www.herbalife.com/uk-ua`,
-      builtWithTitle: `gatsbyjs.com`,
-      builtWithUrl: `https://www.gatsbyjs.com/`,
+    author: "@yoursite",
+    locales: {
+      en: {
+        title: "My Site",
+        description: "An amazing site in English",
+      },
+      uk: {
+        title: "Мій Сайт",
+        description: "Дивовижний сайт українською",
+      },
+      ru: {
+        title: "Мой Сайт",
+        description: "Удивительный сайт на русском",
+      },
     },
   },
   plugins: [

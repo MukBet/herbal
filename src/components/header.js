@@ -1,8 +1,9 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import * as React from "react";
+import { Link } from "gatsby";
 import HeaderLogoImageStatic from "./headerLogoImgStatic.js";
+import LanguageSwitcher from './languageSwitcher';
 
-const Header = ({ siteTitleA,siteTitleB }) => (
+const Header = ({ siteTitleA, siteTitleB }) => (
   <header
     style={{
       margin: `0 auto`,
@@ -10,24 +11,26 @@ const Header = ({ siteTitleA,siteTitleB }) => (
       display: `flex`,
       alignItems: `center`,
       justifyContent: `space-between`,
-      backgroundColor: `#7ac043`
+      backgroundColor: `#7ac043`,
+      position: 'relative', // Добавляем относительное позиционирование
     }}
   >
+    {/* Левая часть: Название сайта */}
     <div style={{
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'flex-start', // Выровнены слева
-      padding: '10px', // Отступы от края страницы
+      alignItems: 'flex-start',
+      padding: '20px',
     }}>
       <Link
         to="/"
         style={{
-          fontSize: `var(--font-lg)`, // Меньший размер шрифта
-          textDecoration: `none`, // Убирает подчеркивание
-          color: `white`, // Цвет текста
-          fontWeight: `600`, // Полужирный текст
+          fontSize: `var(--font-lg)`,
+          textDecoration: `none`,
+          color: `white`,
+          fontWeight: `600`,
           fontFamily: `'Arial', sans-serif`,
-          marginBottom: '5px', // Расстояние между заголовками
+          marginBottom: '5px',
         }}
       >
         {siteTitleA}
@@ -35,19 +38,29 @@ const Header = ({ siteTitleA,siteTitleB }) => (
       <Link
         to="/"
         style={{
-          fontSize: `30px`, // Больший размер шрифта
+          fontSize: `30px`,
           textDecoration: `none`,
           color: `#111`,
-          fontWeight: `bold`, // Жирный текст для выделения
+          fontWeight: `bold`,
           fontFamily: `'Arial', sans-serif`,
         }}
       >
         {siteTitleB}
       </Link>
     </div>
-  <HeaderLogoImageStatic />
 
+    {/* Логотип */}
+    <HeaderLogoImageStatic />
+
+    {/* Переключатель языка, прикрепленный к правому верхнему углу */}
+    <div style={{
+      position: 'absolute',
+      top: '110px',
+      right: '10px',
+    }}>
+      <LanguageSwitcher />
+    </div>
   </header>
-)
+);
 
-export default Header
+export default Header;

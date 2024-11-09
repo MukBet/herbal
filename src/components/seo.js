@@ -7,24 +7,39 @@
 
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { useLanguage } from '../context/languageContext'; // Предполагается, что контекст уже настроен
+
 
 function Seo({ description, title, children }) {
+  const { language } = useLanguage(); // Получение текущего языка
   const { site } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
-            title
-            description
             author
+            locales {
+              en {
+                title
+                description
+              }
+              uk {
+                title
+                description
+              }
+              ru {
+                title
+                description
+              }
+            }
           }
         }
       }
     `
-  )
+  );
 
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+  const metaDescription = description || site.siteMetadata.locales[language].description;
+  const defaultTitle = site.siteMetadata.locales[language].title;
 
   return (
     <>

@@ -5,3 +5,9 @@
  */
 
 // You can delete this file if you're not using it
+const React = require('react');
+const { LanguageProvider } = require('./src/context/languageContext');
+
+exports.wrapRootElement = ({ element }) => (
+  <LanguageProvider>{element}</LanguageProvider>
+);

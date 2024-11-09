@@ -3,35 +3,38 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
+import AlternatingBlocks from "../components/mainPageBlocks/AlternatingBlocks.js"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
+import image1 from '../images/tild3037-3632-4466-b737-663931613965__herbalife-nutrition-.jpg';
+import image2 from '../images/tild3037-3632-4466-b737-663931613965__herbalife-nutrition-.jpg';
 
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-  },
-  {
-    text: "Examples",
-    url: "https://github.com/gatsbyjs/gatsby/tree/master/examples",
-    description:
-      "A collection of websites ranging from very basic to complex/complete that illustrate how to accomplish specific tasks within your Gatsby sites.",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Learn how to add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-  },
-]
+// const links = [
+//   {
+//     text: "Tutorial",
+//     url: "https://www.gatsbyjs.com/docs/tutorial",
+//     description:
+//       "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
+//   },
+//   {
+//     text: "Examples",
+//     url: "https://github.com/gatsbyjs/gatsby/tree/master/examples",
+//     description:
+//       "A collection of websites ranging from very basic to complex/complete that illustrate how to accomplish specific tasks within your Gatsby sites.",
+//   },
+//   {
+//     text: "Plugin Library",
+//     url: "https://www.gatsbyjs.com/plugins",
+//     description:
+//       "Learn how to add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
+//   },
+//   {
+//     text: "Build and Host",
+//     url: "https://www.gatsbyjs.com/cloud",
+//     description:
+//       "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
+//   },
+// ]
 
 const samplePageLinks = [
   {
@@ -46,31 +49,92 @@ const samplePageLinks = [
   { text: "Deferred Static Generation", url: "using-dsg" },
 ]
 
-const moreLinks = [
-  { text: "Join us on Discord", url: "https://gatsby.dev/discord" },
-  {
-    text: "Documentation",
-    url: "https://gatsbyjs.com/docs/",
-  },
-  {
-    text: "Starters",
-    url: "https://gatsbyjs.com/starters/",
-  },
-  {
-    text: "Showcase",
-    url: "https://gatsbyjs.com/showcase/",
-  },
-  {
-    text: "Contributing",
-    url: "https://www.gatsbyjs.com/contributing/",
-  },
-  { text: "Issues", url: "https://github.com/gatsbyjs/gatsby/issues" },
-]
-
-const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
+//const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
 
 const IndexPage = () => (
+
   <Layout>
+<AlternatingBlocks
+  blocks={[
+    {
+      image: <img src={image1} alt="Описание изображения 1" />,
+      class: 'block-text block-text-a',
+      title: 'Заголовок 1',
+      content: 'Текст для первого блока.',
+      url: "https://www.gatsbyjs.com/plugins",
+    },
+    {
+      image: <img src={image2} alt="Описание изображения 2" />,
+      class: 'block-text block-text-b',
+      title: 'Заголовок 2',
+      content: '',
+      style:{
+        list:"list",
+      },
+      ul: [
+        {
+          text: "Tutorial",
+          url: "https://www.gatsbyjs.com/docs/tutorial",
+          description:
+            "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
+          style:{
+            item:"listItem",
+            Link:"listLink",
+            desc:"listDescription",
+          }
+        },
+        {
+          text: "Tutorial",
+          url: "https://www.gatsbyjs.com/docs/tutorial",
+          description:
+            "A great place to get started if you're new to web development. DesiA great place to get started if you're new to web development. DesiA great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
+          style:{
+            item:"listItem",
+            Link:"listLink",
+            desc:"listDescription",
+          }
+        }
+      ],
+      url: "",
+    },
+    {
+      image: <img src={image2} alt="Описание изображения 2" />,
+      class: 'block-text block-text-b',
+      title: 'Заголовок 2',
+      content: '',
+      style:{
+        list:"verticalList",
+      },
+      ul: [
+        {
+          text: "Tutorial",
+          url: "https://www.gatsbyjs.com/docs/tutorial",
+          description:
+            "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
+          style:{
+            item:"verticalListItem",
+            Link:"verticalListItemLink",
+            desc:"verticalListItemDescription",
+          }
+        },
+        {
+          text: "Tutorial",
+          url: "https://www.gatsbyjs.com/docs/tutorial",
+          description:
+            "A great place to get started if you're new to web development. DesiA great place to get started if you're new to web development. DesiA great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
+          style:{
+            item:"verticalListItem",
+            Link:"verticalListItemLink",
+            desc:"verticalListItemDescription",
+          }
+        }
+      ],
+      url: "",
+    },
+  ]}
+/>
+
+
     <div className={styles.textCenter}>
       <StaticImage
         src="../images/example.png"
@@ -82,40 +146,20 @@ const IndexPage = () => (
         style={{ marginBottom: `var(--space-3)` }}
       />
       <h1>
-        Welcome to <b>Gatsby!</b>
+        Вітаю! <b>Якщо ти тут, то вже півшялху пройдено!</b>
       </h1>
       <p className={styles.intro}>
-        <b>Example pages:</b>{" "}
+        {/* <b>Example pages:</b>{" "} */}
         {samplePageLinks.map((link, i) => (
           <React.Fragment key={link.url}>
-            <Link to={link.url}>{link.text}</Link>
+            <Link to={link.url} target="_blank">{link.text}</Link>
             {i !== samplePageLinks.length - 1 && <> · </>}
           </React.Fragment>
         ))}
         <br />
-        Edit <code>src/pages/index.js</code> to update this page.
       </p>
     </div>
-    <ul className={styles.list}>
-      {links.map(link => (
-        <li key={link.url} className={styles.listItem}>
-          <a
-            className={styles.listItemLink}
-            href={`${link.url}${utmParameters}`}
-          >
-            {link.text} ↗
-          </a>
-          <p className={styles.listItemDescription}>{link.description}</p>
-        </li>
-      ))}
-    </ul>
-    {moreLinks.map((link, i) => (
-      <React.Fragment key={link.url}>
-        <a href={`${link.url}${utmParameters}`}>{link.text}</a>
-        {i !== moreLinks.length - 1 && <> · </>}
-      </React.Fragment>
-    ))}
-  </Layout>
+   </Layout>
 )
 
 /**
