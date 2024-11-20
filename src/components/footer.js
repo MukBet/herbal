@@ -33,21 +33,22 @@ const Footer = ({ bottomTitle, bottomUrl,bottomBuiltWithTitle,bottomBuiltWithUrl
         display: `flex`,
         alignItems: `center`,
         justifyContent: `space-between`,
-        backgroundColor: `#7ac043`
+        backgroundColor: `#7ac043`,
+        color: "white"
     }}
   >
-    <span>© {new Date().getFullYear()} Built with <a href={bottomBuiltWithUrl} target="_blank" rel="noreferrer">{bottomBuiltWithTitle}</a>&middot;</span>
+    <span>© {new Date().getFullYear()} Built with <a href={bottomBuiltWithUrl} style={{color: "white"}} target="_blank" rel="noreferrer">{bottomBuiltWithTitle}</a>&middot;</span>
     
     {` `}
     {/* Думаю надо в Футере поработать с цветами текста, ну и стили, размер */}
     {moreLinks.map((link, i) => (
       <React.Fragment key={link.url}>
-        <a href={`${link.url}${utmParameters}`} target="_blank" rel="noreferrer">{link.text}</a>
+        <a href={`${link.url}${utmParameters}`} target="_blank" rel="noreferrer" style={{color: "white"}} >{link.text}</a>
         {i !== moreLinks.length - 1 && <> · </>}
       </React.Fragment>
     ))}
 
-    <a href={bottomUrl} target="_blank" rel="noreferrer">{bottomTitle}</a>
+    <a href={bottomUrl} style={{color: "white"}}  target="_blank" rel="noreferrer">{bottomTitle}</a>
   </footer>
 )
 

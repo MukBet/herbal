@@ -2,9 +2,11 @@ import * as React from "react";
 import { Link } from "gatsby";
 import HeaderLogoImageStatic from "./headerLogoImgStatic.js";
 import LanguageSwitcher from './languageSwitcher';
+import SocialLinks from './social/socialLinks';
+import * as styles from './Header.module.css';
 
 const Header = ({ siteTitleA, siteTitleB }) => (
-  <header
+  <header className={styles.header}
     style={{
       margin: `0 auto`,
       padding: `var(--space-3) var(--space-3)`,
@@ -12,7 +14,8 @@ const Header = ({ siteTitleA, siteTitleB }) => (
       alignItems: `center`,
       justifyContent: `space-between`,
       backgroundColor: `#7ac043`,
-      position: 'relative', // Добавляем относительное позиционирование
+      position: 'relative',
+      flexWrap: 'wrap', // Позволяет элементам переноситься на мобильных устройствах
     }}
   >
     {/* Левая часть: Название сайта */}
@@ -21,6 +24,7 @@ const Header = ({ siteTitleA, siteTitleB }) => (
       flexDirection: 'column',
       alignItems: 'flex-start',
       padding: '20px',
+      flex: '0 1 auto', // Остаётся компактным на десктопе
     }}>
       <Link
         to="/"
@@ -29,7 +33,7 @@ const Header = ({ siteTitleA, siteTitleB }) => (
           textDecoration: `none`,
           color: `white`,
           fontWeight: `600`,
-          fontFamily: `'Arial', sans-serif`,
+          fontFamily: `'Roboto', Arial, sans-serif`,
           marginBottom: '5px',
         }}
       >
@@ -38,28 +42,45 @@ const Header = ({ siteTitleA, siteTitleB }) => (
       <Link
         to="/"
         style={{
-          fontSize: `30px`,
+          fontSize: `34px`,
           textDecoration: `none`,
           color: `#111`,
           fontWeight: `bold`,
-          fontFamily: `'Arial', sans-serif`,
+          fontFamily: `'Roboto', Arial, sans-serif`,
         }}
       >
         {siteTitleB}
       </Link>
     </div>
 
-    {/* Логотип */}
-    <HeaderLogoImageStatic />
-
-    {/* Переключатель языка, прикрепленный к правому верхнему углу */}
+    {/* Блок с социальными ссылками */}
     <div style={{
-      position: 'absolute',
-      top: '110px',
-      right: '10px',
+      display: 'flex',
+      justifyContent: 'center',
+      flex: '0 1 auto', // Остаётся компактным
+      margin: '0 10px', // Расстояние между блоками
     }}>
-      <LanguageSwitcher />
+      <SocialLinks />
     </div>
+
+    {/* Логотип */}
+    <div style={{
+      flex: '0 1 auto', // Остаётся компактным
+    }}>
+     
+      {/* Логотип */}
+      <HeaderLogoImageStatic />
+
+      {/* Переключатель языка */}
+      <div style={{
+        position: 'absolute',
+        top: '110px',
+        right: '10px',
+      }}>
+        <LanguageSwitcher />
+      </div>
+    </div>
+
   </header>
 );
 
